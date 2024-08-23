@@ -21,7 +21,7 @@ jobs:
       - uses: SFDigitalServices/wait-for-deployment-action@v1
         id: deployment
         with:
-          token: ${{ github.token }}
+          github-token: ${{ github.token }}
           environment: Preview
 
       - run: echo "Deployed to: ${{ steps.deployment.outputs.url }}"
@@ -29,7 +29,7 @@ jobs:
 
 ## Inputs
 
-### `token`
+### `github-token`
 This is your GitHub access token, typically accessible via `${{ github.token }}`.
 
 ### `environment`
@@ -43,7 +43,7 @@ every push to the `Preview` environment, and pushes to the default branch to
 The number of seconds after which to give up with an error. Default: 30.
 
 ### `interval`
-The number of seconds to wait between polls to the deployments API. Default: 5.
+The number of milliseconds to wait between polls to the deployments API. Default: 5.
 
 ## Outputs
 
